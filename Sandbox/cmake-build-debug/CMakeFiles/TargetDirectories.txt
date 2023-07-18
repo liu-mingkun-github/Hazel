@@ -1,0 +1,3 @@
+/Users/liumingkun/CLionProjects/Hazel/Sandbox/cmake-build-debug/CMakeFiles/Sandbox.dir
+/Users/liumingkun/CLionProjects/Hazel/Sandbox/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/liumingkun/CLionProjects/Hazel/Sandbox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
