@@ -2,7 +2,7 @@
 
 #include "Core.h"
 
-namespace Hazel {
+namespace hazel {
 
 	class __declspec(dllexport) Application {
 	public:
@@ -12,6 +12,6 @@ namespace Hazel {
 		void run();
 	};
 
-	Application* CreateApplication();
+	Application* createApplication();
 }
 
