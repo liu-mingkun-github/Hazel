@@ -1,6 +1,6 @@
 #include "Application.h"
 
-namespace Hazel {
+namespace hazel {
 
 	Application::Application() {
 
@@ -15,5 +15,5 @@ namespace Hazel {
 	}
 
 	// To be defined in CLIENT
-	Application* CreateApplication();
+	Application* createApplication();
 }
