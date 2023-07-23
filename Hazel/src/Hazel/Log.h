@@ -6,7 +6,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-namespace hazel {
+namespace Hazel {
 
 	class HAZEL_API Log {
 		
@@ -28,16 +28,16 @@ namespace hazel {
 }
 
 // Core log macros
-#define HZ_CORE_TRACE(...)	::hazel::Log::getCoreLogger()->trace(__VA_ARGS__)
-#define HZ_CORE_INO(...)	::hazel::Log::getCoreLogger()->info(__VA_ARGS__)
-#define HZ_CORE_WARN(...)	::hazel::Log::getCoreLogger()->warn(__VA_ARGS__)
-#define HZ_CORE_ERROR(...)	::hazel::Log::getCoreLogger()->error(__VA_ARGS__)
-#define HZ_CORE_FATAL(...)	::hazel::Log::getCoreLogger()->fatal(__VA_ARGS__)
+#define HZ_CORE_TRACE(...)	::Hazel::Log::getCoreLogger()->trace(__VA_ARGS__)
+#define HZ_CORE_INO(...)	::Hazel::Log::getCoreLogger()->info(__VA_ARGS__)
+#define HZ_CORE_WARN(...)	::Hazel::Log::getCoreLogger()->warn(__VA_ARGS__)
+#define HZ_CORE_ERROR(...)	::Hazel::Log::getCoreLogger()->error(__VA_ARGS__)
+#define HZ_CORE_FATAL(...)	::Hazel::Log::getCoreLogger()->fatal(__VA_ARGS__)
 
 // Client log macros
-#define HZ_TRACE(...)	::hazel::Log::getClientLogger()->trace(__VA_ARGS__)
-#define HZ_INFO(...)	::hazel::Log::getClientLogger()->info(__VA_ARGS__)
-#define HZ_WARN(...)	::hazel::Log::getClientLogger()->warn(__VA_ARGS__)
-#define HZ_ERROR(...)	::hazel::Log::getClientLogger()->error(__VA_ARGS__)
-#define HZ_FATAL(...)	::hazel::Log::getClientLogger()->fatal(__VA_ARGS__)
+#define HZ_TRACE(...)	::Hazel::Log::getClientLogger()->trace(__VA_ARGS__)
+#define HZ_INFO(...)	::Hazel::Log::getClientLogger()->info(__VA_ARGS__)
+#define HZ_WARN(...)	::Hazel::Log::getClientLogger()->warn(__VA_ARGS__)
+#define HZ_ERROR(...)	::Hazel::Log::getClientLogger()->error(__VA_ARGS__)
+#define HZ_FATAL(...)	::Hazel::Log::getClientLogger()->fatal(__VA_ARGS__)
 

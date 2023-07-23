@@ -1,6 +1,6 @@
 #include "Log.h"
 
-namespace hazel {
+namespace Hazel {
 
 	std::shared_ptr<spdlog::logger> Log::s_coreLogger;
 	std::shared_ptr<spdlog::logger> Log::s_clientLogger;
