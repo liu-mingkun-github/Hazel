@@ -14,6 +14,9 @@ namespace Hazel {
 
 		void run();
 
+		// This method is for responding the proper calling events
+		void onEvent(Event& e);
+
 	private:
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
