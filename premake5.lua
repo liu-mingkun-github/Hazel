@@ -36,7 +36,10 @@ project "Hazel"
 	-- objdir is for intermediate codes
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	-- pchheader here means precompiled headers
 	pchheader "hzpch.h"
+	-- pchsource is only needed on vs, but we don't need to add to the 
+	-- platform explicit scope, because other platform will automatically ignore it. 
 	pchsource "Hazel/src/hzpch.cpp"
 
 	-- files define the file patterns we want to include in the sln file
