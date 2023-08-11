@@ -1,12 +1,21 @@
 #pragma once
 
+// This is the first file created, it mainly contains some 
+// macros for further usage.
+
+// Because dllimport and dllexport only exist in Windows
+// so here set a if statement to check the platform
 #ifdef HZ_PLATFORM_WINDOWS
+	// Also check if want to build a dll or a .lib library
 	#ifdef HZ_BUILD_DLL
+		// If we are trying to build the dll, then export it.
 		#define HAZEL_API __declspec(dllexport)
 	#else
+		// If we are not trying to build the dll, then it should be imported from another DLL.
 		#define HAZEL_API __declspec(dllimport)
 	#endif
 #else
+	// If no platforms are defined, report errors.
 	#error Hazel only supprt Windows!
 #endif
 
