@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+	Differet kinds of events, if it is an event, if needs to inherit from the
+	Event class
+*/
+
 #include "Event.h"
 
 namespace Hazel {

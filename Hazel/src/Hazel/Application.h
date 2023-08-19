@@ -4,6 +4,7 @@
 #include "Core.h"
 #include "Events/Event.h"
 #include "Window.h"
+#include "Hazel/Events/ApplicationEvent.h"
 
 namespace Hazel {
 	// __declspec is a Microsoft specific extenstions 
@@ -29,9 +30,13 @@ namespace Hazel {
 		void run();
 
 		// This method is for responding the proper calling events
+		// Whenever an Event wants to run, it is called through this method
 		void onEvent(Event& e);
 
 	private:
+		// Why there are onEvent() and onWindowClose() Events? What's the difference?
+		bool onWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
 	};

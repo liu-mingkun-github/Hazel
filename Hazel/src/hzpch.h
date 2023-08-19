@@ -1,5 +1,6 @@
 #pragma once
 
+// This file will be precompiled, configured in the .lua file
 #include <iostream>
 #include <memory>
 #include <utility>
