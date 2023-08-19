@@ -9,16 +9,21 @@ namespace Hazel {
 
 	// std::bind() is used to create partial functions, that you can use the partial arguments
 	// of the original function and use it to create a new function.
+	// Now, this defined function defines that we need to pass a function in the scope of Application
+	// and pass two arguements: this class and an argument which is in the second position of the original function.
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	// Application class's constructor
 	Application::Application() {
+		// create a unique pointer that points to a window
 		m_window = std::unique_ptr<Window>(Window::create());
+
 	}
 
 	Application::~Application() {
 
 	}
-	
+
 	void Application::run() {
 		WindowResizeEvent e(1280, 720);
 		if (e.isInCategory(EventCategoryApplication)) {
