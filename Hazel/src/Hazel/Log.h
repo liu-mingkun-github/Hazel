@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "spdlog/fmt/ostr.h"
@@ -26,7 +27,10 @@ namespace Hazel {
 	};
 }
 
+// The macros below are basically a shorthand of the log function
+
 // Core log macros
+// ... means a number of variants, __VA_ARGS__ represents the variants
 #define HZ_CORE_TRACE(...)	::Hazel::Log::getCoreLogger()->trace(__VA_ARGS__)
 #define HZ_CORE_INFO(...)	::Hazel::Log::getCoreLogger()->info(__VA_ARGS__)
 #define HZ_CORE_WARN(...)	::Hazel::Log::getCoreLogger()->warn(__VA_ARGS__)

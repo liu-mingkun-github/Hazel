@@ -36,6 +36,7 @@ namespace Hazel {
 	class HAZEL_API MouseScrolledEvent : public Event {
 	
 	public:
+		// Offset distance means the distance it moves
 		MouseScrolledEvent(float xOffset, float yOffset)
 			: m_xOffset(xOffset), m_yOffset(yOffset) {}
 

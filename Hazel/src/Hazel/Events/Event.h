@@ -10,6 +10,7 @@ namespace Hazel {
 	// For the future, a better strategy might be to buffer events in an event
 	// bus and process them during the "event" of the update stage.
 
+	// Enumerate different Event Types
 	enum class EventType {
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
@@ -18,6 +19,8 @@ namespace Hazel {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
+	// BIT is a macros in Core.h
+	// An event can be of multiple categories
 	enum EventCategory {
 		None = 0,
 		EventCategoryApplication	= BIT(0),
@@ -27,6 +30,12 @@ namespace Hazel {
 		EventCategoryMouseButton	= BIT(4)
 	};
 
+// ## is used to concatenate two tokens into one, it cannot be used in the head or tail
+// Like here is to concat EventType and type.
+// Remember in macros, all the things are strings.
+// The macros here basically just override the methods in the Event class
+// Need to have both static and non-static methods for different situations:
+// Class::getStaticType() or instance.getType()
 #define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return EventType::##type; }\
 																virtual EventType getEventType() const override { return getStaticType(); }\
 																virtual const char* getName() const override { return #type; }
@@ -36,9 +45,13 @@ namespace Hazel {
 	class HAZEL_API Event {
 
 	private:
+		// A friend class can access the private and protected members of the class
+		// in which it is declared as a friend.
+		// So now Event can access EventDispatcher
 		friend class EventDispatcher;
 
 	public:
+		// All methods here are pure virtual methods
 		virtual EventType getEventType() const = 0;
 
 		virtual const char* getName() const = 0;
@@ -49,7 +62,7 @@ namespace Hazel {
 			return getName(); 
 		}
 
-		bool isInCategory(EventCategory category) {
+		inline bool isInCategory(EventCategory category) {
 			return getCategoryFlags() & category;
 		}
 
@@ -61,6 +74,7 @@ namespace Hazel {
 
 	private:
 		template<typename T>
+		// A function that returns a bool and use T& as the parameter
 		using eventFn = std::function<bool(T&)>;
 
 	public:
@@ -71,6 +85,8 @@ namespace Hazel {
 		template<typename T>
 		bool dispatch(eventFn<T> func) {
 			if (m_event.getEventType() == T::getStaticType()) {
+				// Call the std::function<bool(T&)>
+				// Here we convert Event pointer to T type pointer and get its reference
 				m_event.m_handled = func(*(T*)&m_event);
 				return true;
 			}
