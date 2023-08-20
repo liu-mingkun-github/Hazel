@@ -17,15 +17,25 @@ namespace Hazel {
 	Application::Application() {
 		// create a unique pointer that points to a window
 		m_window = std::unique_ptr<Window>(Window::create());
-
+		// To set the event that the winndow calls, pass in a function
+		m_window->setEventCallback(BIND_EVENT_FN(onEvent));
 	}
 
 	Application::~Application() {
 
 	}
 
+	void Application::onEvent(Event& e) {
+		EventDispatcher dispatcher(e);
+		// Here dispatch<WindowCloseEvent> means to dispatch a WindowCloseEvent type event
+		// This is a function template
+		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
+
+		HZ_CORE_TRACE("{0}", e);
+	}
+
 	void Application::run() {
-		WindowResizeEvent e(1280, 720);
+		/*WindowResizeEvent e(1280, 720);
 		if (e.isInCategory(EventCategoryApplication)) {
 			while (m_running) {
 				HZ_TRACE(e);
@@ -37,9 +47,22 @@ namespace Hazel {
 			HZ_TRACE(e);
 		}
 
-		while (true);
+		while (true);*/
+
+		while (m_running) {
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_window->onUpdate();
+		}
 	}
 
 	// To be defined in CLIENT
+	// .cpp file can also define
+	// .cpp file can have declaration, definition, and callback
 	Application* createApplication();
+
+	bool Application::onWindowClose(WindowCloseEvent& e) {
+		m_running = false;
+		return true;
+	}
 }
