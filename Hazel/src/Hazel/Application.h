@@ -2,8 +2,10 @@
 
 // Include Core.h for a bunch of macros
 #include "Core.h"
-#include "Events/Event.h"
 #include "Window.h"
+
+#include "Hazel/LayerStack.h"
+#include "Hazel/Events/Event.h"
 #include "Hazel/Events/ApplicationEvent.h"
 
 namespace Hazel {
@@ -33,12 +35,17 @@ namespace Hazel {
 		// Whenever an Event wants to run, it is called through this method
 		void onEvent(Event& e);
 
+		void pushLayer(Layer* layer);
+		// What this is for?
+		void pushOverlay(Layer* overlay);
+
 	private:
 		// Why there are onEvent() and onWindowClose() Events? What's the difference?
 		bool onWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
+		LayerStack m_layerStack;
 	};
 
 	// To be defined in CLIENT

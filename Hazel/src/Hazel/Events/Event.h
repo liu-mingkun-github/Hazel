@@ -46,11 +46,13 @@ namespace Hazel {
 
 	private:
 		// A friend class can access the private and protected members of the class
-		// in which it is declared as a friend.
+		 //in which it is declared as a friend.
 		// So now Event can access EventDispatcher
-		friend class EventDispatcher;
+		//friend class EventDispatcher;
 
 	public:
+		bool handled = false;
+
 		// All methods here are pure virtual methods
 		virtual EventType getEventType() const = 0;
 
@@ -66,8 +68,8 @@ namespace Hazel {
 			return getCategoryFlags() & category;
 		}
 
-	protected:
-		bool m_handled = false;
+	/*protected:
+		bool m_handled = false;*/
 	};
 
 	class EventDispatcher {
@@ -87,7 +89,7 @@ namespace Hazel {
 			if (m_event.getEventType() == T::getStaticType()) {
 				// Call the std::function<bool(T&)>
 				// Here we convert Event pointer to T type pointer and get its reference
-				m_event.m_handled = func(*(T*)&m_event);
+				m_event.handled = func(*(T*)&m_event);
 				return true;
 			}
 			return false;
