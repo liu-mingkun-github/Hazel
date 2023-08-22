@@ -54,7 +54,7 @@ project "Hazel"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}"
 	}
 
 	links 
