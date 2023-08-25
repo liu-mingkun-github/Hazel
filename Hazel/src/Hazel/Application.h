@@ -39,6 +39,14 @@ namespace Hazel {
 		// What this is for?
 		void pushOverlay(Layer* overlay);
 
+		inline Window& getWindow() {
+			return *m_window;
+		}
+
+		inline static Application& get() {
+			return *s_instance;
+		}
+
 	private:
 		// Why there are onEvent() and onWindowClose() Events? What's the difference?
 		bool onWindowClose(WindowCloseEvent& e);
@@ -46,6 +54,8 @@ namespace Hazel {
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
 		LayerStack m_layerStack;
+
+		static Application* s_instance;
 	};
 
 	// To be defined in CLIENT

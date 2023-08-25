@@ -11,6 +11,8 @@
 // Log is for using logger
 #include "Hazel/Log.h"
 
+#include "Hazel/ImGui/ImGuiLayer.h"
+
 // ------------- Enntry Point -------------
 // EntryPoint.h is for receiving an entry point
 #include "Hazel/EntryPoint.h"
