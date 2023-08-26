@@ -12,6 +12,9 @@ workspace "Hazel"
 		"Dist"
 	}
 
+	-- Set Sandbox as the start project
+	startproject "Sandbox"
+
 -- Define a path variable
 -- The tokens (e.g., cfg.buildcfg) can be looked up in the wiki tokens
 -- The actual output is Debug-Windows-x86_64
