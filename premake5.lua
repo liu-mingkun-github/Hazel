@@ -39,6 +39,7 @@ project "Hazel"
 	-- SharedLib means this is a DLL file
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	-- Specify where is this going to be output to
 	-- .. means appending
@@ -81,7 +82,7 @@ project "Hazel"
 	filter "system:windows"
 		cppdialect "C++17"
 		-- To link the libraries statically
-		staticruntime "On"
+		-- staticruntime "On"
 		systemversion "10.0.22000.0"	-- or you can just use "latest"
 
 		-- Here are the preprocessor variables we defined that can be used by macros
@@ -103,17 +104,20 @@ project "Hazel"
 	filter "configurations:Debug"
 		-- Define a preprocessor variable
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		-- buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		-- buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		-- buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 
@@ -124,6 +128,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -149,7 +154,7 @@ project "Sandbox"
 	-- Filter includes variables that only can be applied to a certain platform
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		-- staticruntime "On"
 		systemversion "10.0.22000.0"	-- or you can just use "latest"
 
 		defines
@@ -159,15 +164,18 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		-- buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		-- buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		-- buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
