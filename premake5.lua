@@ -97,7 +97,7 @@ project "Hazel"
 		postbuildcommands
 		{
 			-- The command below is going to copy the dll from Hazel into Sandbox so we don't need to manual do it
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox\"")
 		}
 
 	filter "configurations:Debug"
