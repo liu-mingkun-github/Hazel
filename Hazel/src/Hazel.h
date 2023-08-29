@@ -13,6 +13,10 @@
 
 #include "Hazel/ImGui/ImGuiLayer.h"
 
+#include "Hazel/Input.h"
+#include "Hazel/KeyCodes.h"
+#include "Hazel/MouseButtonCodes.h"
+
 // ------------- Enntry Point -------------
 // EntryPoint.h is for receiving an entry point
 #include "Hazel/EntryPoint.h"
