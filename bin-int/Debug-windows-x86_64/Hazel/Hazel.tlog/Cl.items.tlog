@@ -6,3 +6,4 @@ C:\Users\liumingkun\source\repos\Hazel\Hazel\src\Hazel\Log.cpp;C:\Users\liumingk
 C:\Users\liumingkun\source\repos\Hazel\Hazel\src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp;C:\Users\liumingkun\source\repos\Hazel\bin-int\Debug-windows-x86_64\Hazel\ImGuiOpenGLRenderer.obj
 C:\Users\liumingkun\source\repos\Hazel\Hazel\src\Platform\Windows\WindowsWindow.cpp;C:\Users\liumingkun\source\repos\Hazel\bin-int\Debug-windows-x86_64\Hazel\WindowsWindow.obj
 C:\Users\liumingkun\source\repos\Hazel\Hazel\src\hzpch.cpp;C:\Users\liumingkun\source\repos\Hazel\bin-int\Debug-windows-x86_64\Hazel\hzpch.obj
+C:\Users\liumingkun\source\repos\Hazel\Hazel\src\Platform\Windows\WindowsInput.cpp;C:\Users\liumingkun\source\repos\Hazel\bin-int\Debug-windows-x86_64\Hazel\WindowsInput.obj

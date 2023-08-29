@@ -23,6 +23,11 @@ namespace Hazel {
 			return m_data.height;
 		}
 
+		inline virtual void* getNativeWindow() const
+		{
+			return m_window;
+		}
+
 		// Window attributes
 		inline void setEventCallback(const EventCallbackFn& callback) override {
 			m_data.eventCallback = callback;

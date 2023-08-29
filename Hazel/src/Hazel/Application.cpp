@@ -5,6 +5,7 @@
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include "Input.h"
 
 namespace Hazel {
 
@@ -72,6 +73,9 @@ namespace Hazel {
 				// Update what?
 				layer->onUpdate();
 			}
+
+			auto [x, y] = Input::getMousePosition();
+			HZ_CORE_TRACE("{0}, {1}", x, y);
 
 			m_window->onUpdate();
 		}
