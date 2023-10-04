@@ -160,7 +160,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		-- staticruntime "On"
-		systemversion "10.0.22000.0"	-- or you can just use "latest"
+		systemversion "10.0.22621.0"	-- or you can just use "latest"
 
 		defines
 		{
